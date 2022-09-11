@@ -16,3 +16,4 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/users/edit/{id}', [HomeController::class, 'edit'])->name('users.edit');
