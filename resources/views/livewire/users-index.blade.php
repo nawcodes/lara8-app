@@ -1,4 +1,9 @@
 <div>
+    {{-- Component Form livewire --}}
+
+    @livewire('users-form', ['users' => $users])
+
+    {{-- End component form livewire --}}
     <div class="row">
         <div class="col-md-12">
             <div class="card">
