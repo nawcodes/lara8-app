@@ -4,9 +4,11 @@
     @livewire('users-form', ['users' => $users])
 
     {{-- End component form livewire --}}
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card">
+
+
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-8 ">
+            <div class="card ">
                 <div class="card-header">
                     <h4 class="card-title"> Users </h4>
                 </div>
