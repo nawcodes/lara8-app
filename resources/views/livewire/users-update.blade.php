@@ -1,6 +1,7 @@
 <div class="row d-flex justify-content-center">
-    {{-- form create users--}}
+    {{-- form update users--}}
     <div class="col-lg-6 card mb-3 p-5 ">
+        <input type="hidden" name="" wire:model="user_id">
         <form action="">
             <div class="form-group">
                 <label for="name">Name</label>
@@ -22,7 +23,7 @@
             </div>
 
 
-            <button type="submit" class="btn btn-primary m-5" wire:click.prevent="store()">Submit</button>
+            <button type="submit" class="btn btn-primary m-5" wire:click.prevent="update">Submit</button>
 
         </form>
 

@@ -1,7 +1,12 @@
 <div>
     {{-- Component Form livewire --}}
 
-    @livewire('users-form', ['users' => $users])
+    @if ($updateMode)
+        @livewire('users-update')
+    @else
+         @livewire('users-form', ['users' => $users])
+    @endif
+
 
     {{-- End component form livewire --}}
 
@@ -54,7 +59,7 @@
                                             {{ $user->updated_at }}
                                         </td>
                                         <td>
-                                            <a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary">Edit</a>
+                                            <a href="#" class="btn btn-primary" wire:click="getUser({{$user->id}})">Edit</a>
                                             <button wire:click="delete({{ $user->id }})" class="btn btn-danger">Delete</button>
                                         </td>
                                     </tr>

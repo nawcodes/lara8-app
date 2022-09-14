@@ -9,6 +9,7 @@ class UsersIndex extends Component
 {
 
     public $users;
+    public $updateMode = false;
 
     protected $listeners = [
         'userStore' => 'handleUserStore', // <-- Add this line
@@ -23,5 +24,11 @@ class UsersIndex extends Component
     public function handleUserStore($users) // <-- Add this line
     {
         session()->flash('success', 'User Created Successfully.'); // <-- Add this line
+    }
+
+    public function getUser($id) {
+        $this->updateMode = true;
+        $user = User::find($id);
+        $this->emit('getUser', $user);
     }
 }
