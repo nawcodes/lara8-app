@@ -13,6 +13,7 @@ class UsersIndex extends Component
 
     protected $users;
     public $updateMode = false;
+    public $paginate = 5;
 
     protected $listeners = [
         'userStore' => 'handleUserStore', // <-- Add this line
@@ -21,7 +22,7 @@ class UsersIndex extends Component
 
     public function render()
     {
-        $this->users = User::latest()->paginate(5);
+        $this->users = User::latest()->paginate($this->paginate);
         return view('livewire.users-index', [
             'users' => $this->users
         ]);

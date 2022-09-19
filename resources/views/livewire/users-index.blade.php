@@ -12,8 +12,19 @@
 
 
     <div class="row d-flex justify-content-center">
+
         <div class="col-md-8 ">
             <div class="card ">
+                 <div class="row">
+            <div class="col">
+                <select wire:model="paginate" name="" id="">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                </select>
+            </div>
+        </div>
                 <div class="card-header">
                     <h4 class="card-title"> Users </h4>
                 </div>
