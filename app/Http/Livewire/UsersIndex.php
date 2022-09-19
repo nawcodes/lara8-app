@@ -14,15 +14,26 @@ class UsersIndex extends Component
     protected $users;
     public $updateMode = false;
     public $paginate = 5;
+    public $search;
+
+
+    protected $updateQueryString = ['search'];
 
     protected $listeners = [
         'userStore' => 'handleUserStore', // <-- Add this line
         'userUpdated' => 'handleUserUpdated', // <-- Add this line
     ];
 
+    public function mount() {
+        $this->search = request()->query('search', $this->search);
+    }
+
     public function render()
     {
-        $this->users = User::latest()->paginate($this->paginate);
+        $this->users = $this->search == null
+        ? User::latest()->paginate($this->paginate)
+        : User::where('name', 'like', '%' . $this->search . '%')->paginate($this->paginate);
+
         return view('livewire.users-index', [
             'users' => $this->users
         ]);
