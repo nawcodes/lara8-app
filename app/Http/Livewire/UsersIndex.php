@@ -13,6 +13,7 @@ class UsersIndex extends Component
 
     protected $listeners = [
         'userStore' => 'handleUserStore', // <-- Add this line
+        'userUpdated' => 'handleUserUpdated', // <-- Add this line
     ];
 
     public function render()
@@ -25,6 +26,13 @@ class UsersIndex extends Component
     {
         session()->flash('success', 'User Created Successfully.'); // <-- Add this line
     }
+
+    public function handleUserUpdated($users) // <-- Add this line
+    {
+        session()->flash('success', 'User Updated Successfully.'); // <-- Add this line
+    }
+
+
 
     public function getUser($id) {
         $this->updateMode = true;

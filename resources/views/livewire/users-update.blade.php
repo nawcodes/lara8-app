@@ -15,7 +15,7 @@
             </div>
             <div class="form-group">
                 <label for="role">Role</label>
-                <select wire:model="role" class="form-control" id="role">
+                <select class="form-control" id="role">
                     <option value="admin">Admin</option>
                     <option value="user">User</option>
                 </select>

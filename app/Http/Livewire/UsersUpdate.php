@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\User;
 use Livewire\Component;
 
 class UsersUpdate extends Component
@@ -20,6 +21,31 @@ class UsersUpdate extends Component
         $this->email = $user['email'];
         $this->user_id = $user['id'];
     }
+
+
+    public function update() {
+        $this->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+        ]);
+
+        if ($this->user_id) {
+            $user = User::find($this->user_id);
+            $user->update([
+                'name' => $this->name,
+                'email' => $this->email,
+            ]);
+            $this->resetInputFields();
+            $this->emit('userUpdated', $user);
+        }
+    }
+
+    private function resetInputFields()
+    {
+        $this->name = '';
+        $this->email = '';
+    }
+
 
 
     public function render()
