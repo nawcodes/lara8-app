@@ -9,14 +9,13 @@ class UsersForm extends Component
 {
 
 
-    public $users;
+    protected $users;
     public $name;
     public $email;
     public $role;
 
     public function mount($users) {
         $this->users = $users;
-
     }
 
     public function store() {
