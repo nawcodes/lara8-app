@@ -32,7 +32,13 @@ class UsersIndex extends Component
         session()->flash('success', 'User Updated Successfully.'); // <-- Add this line
     }
 
-
+    public function destroy($id){
+        if($id){
+            $record = User::find($id);
+            $record->delete();
+            session()->flash('success', 'User Deleted Successfully.');
+        }
+    }
 
     public function getUser($id) {
         $this->updateMode = true;

@@ -60,7 +60,7 @@
                                         </td>
                                         <td>
                                             <a href="#" class="btn btn-primary" wire:click="getUser({{$user->id}})">Edit</a>
-                                            <button wire:click="delete({{ $user->id }})" class="btn btn-danger">Delete</button>
+                                            <button wire:click="destroy({{ $user->id }})" class="btn btn-danger">Delete</button>
                                         </td>
                                     </tr>
                                 @endforeach
